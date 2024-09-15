@@ -135,3 +135,71 @@ ng g c "nome"
 ```
 
 Também é possível criar passando o caminho
+
+# Property binding
+
+O Property Binding é uma forma de conectar uma propriedade do seu componente TypeScript (os bastidores do nosso desfile) com um atributo do seu template HTML (a passarela).
+
+Ele funciona como um canal unidirecional, onde o componente "envia" informações para o HTML, mas o HTML não pode "enviar" informações de volta para o componente.
+
+Para usar o Property Binding, você coloca colchetes [] em volta do atributo HTML e atribui a ele o nome da propriedade do componente.
+
+Por exemplo, se você tem uma propriedade chamada nome no seu componente TypeScript com o valor "Maria", você pode usar o Property Binding para exibir esse valor no HTML:
+bash
+
+<p>Olá, meu nome é [value]="nome"></p>
+
+O Angular vai pegar o valor da propriedade nome do seu componente e inserir no HTML, resultando em:
+css
+
+<p>Olá, meu nome é Maria.</p>
+
+É como se você estivesse enviando um recado do backstage para a modelo na passarela, e o recado é exibido para o público.
+
+# Event binding
+
+Event Binding é uma técnica do Angular que permite que você vincule eventos do template HTML aos métodos do seu componente TypeScript.
+
+Em outras palavras, você pode usar o Event Binding para "ouvir" eventos que acontecem no template, como cliques em botões, mudanças em campos de texto ou alterações em listas, e executar ações específicas no seu componente quando esses eventos ocorrem.
+
+É como se você estivesse criando uma conexão entre o seu template e o seu componente, permitindo que eles "conversem" entre si.
+
+# Two-way Data Binding
+
+"Two-way data binding" é uma técnica que permite a sincronização bidirecional de dados entre o componente e o template no Angular. Imagine como se fosse um diálogo entre duas pessoas: cada uma fala e escuta ao mesmo tempo, e a conversa flui naturalmente.
+
+No "two-way data binding", as alterações no template são refletidas no componente, e as alterações no componente são refletidas no template. É como se o template e o componente estivessem "conversando" e se atualizando em tempo real.
+
+Diretivas no Angular são como "instruções especiais" que você coloca no seu HTML para modificar o comportamento ou a aparência de um elemento. Elas são como "ferramentas" que você usa para construir a sua aplicação.
+
+Existem dois tipos principais de diretivas:
+
+    Diretivas de atributo: Modificam as características de um elemento, como a cor ou o tamanho.
+    Diretivas estruturais: Modificam a estrutura da sua aplicação, como adicionar ou remover elementos.
+
+As diretivas são uma parte fundamental do Angular e permitem que você crie aplicações mais complexas e interativas.
+Aplica-se com o banana na caixa:
+`javascript [(ngModel)]="pensamento.conteudo" `
+
+# Rotas
+
+Deve passar isso no app-component: `<router-outlet></router-outlet>`.
+Exemplo de configuração no app rota, lembrando que tem que passar o pathMath em rotas vazias:
+
+```javascript
+const routes: Routes = [
+  {
+    path: "",
+    redirectTo: "listThoughts",
+    pathMatch: "full",
+  },
+  {
+    path: "createThoughts",
+    component: CreateThoughtsComponent,
+  },
+  {
+    path: "listThoughts",
+    component: ListThoughtsComponent,
+  },
+];
+```
