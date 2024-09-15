@@ -203,3 +203,29 @@ const routes: Routes = [
   },
 ];
 ```
+
+# \*ngFor
+
+O ngFor é uma diretiva estrutural do Angular que te permite criar listas dinâmicas no HTML. Ele itera sobre uma lista de dados e cria um elemento HTML para cada item da lista.Sintaxe.
+
+# Comunicação entre componentes
+
+Para que haja comunicação entre componentes é necessário fazer o seguinte, dentro do component filho deve-se passar a propriedade Input()
+
+```javascript
+@Input() pensamento = {
+    conteudo: 'I love',
+    autoria: 'Matheus Mozart',
+    modelo: 'modelo3'
+  }
+```
+
+E dentro do local onde os dados vão ser inseridos, passase o property Binding:
+
+```javascript
+
+
+ <div *ngFor="let pensamento of listaPensamentos">
+      <app-thought [pensamento]="pensamento"></app-thought>
+    </div>
+```
