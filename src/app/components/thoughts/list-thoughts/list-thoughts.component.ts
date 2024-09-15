@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Thought } from '../thought/thought';
+import { ThoughtService } from '../thought.service';
 
 @Component({
   selector: 'app-list-thoughts',
@@ -7,27 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListThoughtsComponent implements OnInit {
 
-  listaPensamentos = [
-    {
-      conteudo: 'Comunicação entre componentes',
-      autoria: 'Matheus Mozart',
-      modelo: 'modelo3'
-    },
-    {
-      conteudo: 'Passando informações para o filho',
-      autoria: 'Pai',
-      modelo: 'modelo2'
-    },
-    {
-      conteudo: 'Passando informações para o filho do meio',
-      autoria: 'Pai',
-      modelo: 'modelo3'
-    }
-
-  ]
-  constructor() { }
+  listaPensamentos: Thought[] = []
+  constructor(private service: ThoughtService) { }
 
   ngOnInit(): void {
+    this.service.listar()
   }
 
 }

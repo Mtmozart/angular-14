@@ -229,3 +229,88 @@ E dentro do local onde os dados vão ser inseridos, passase o property Binding:
       <app-thought [pensamento]="pensamento"></app-thought>
     </div>
 ```
+
+# If e else
+
+Para fazer um if, else básico é simples, usa-se o seguinte código:
+
+```javascript
+ <div class="mural" *ngIf="listaPensamentos.length > 0, else semPensamentos">
+    <div *ngFor="let pensamento of listaPensamentos">
+      <app-thought [pensamento]="pensamento"></app-thought>
+    </div>
+  </div>
+</section>
+<ng-template #semPensamentos>
+  <div class="ff-inter sem-pensamentos">
+    <p>Sem pensamentos cadastrados</p>
+  </div>
+</ng-template>
+
+```
+
+# NgClass
+
+Método que permite a utilização de class com condicionais através de funções:
+
+```javascript
+[ngClass]="larguraPensamento()
+
+//modulo
+
+ larguraPensamento(): string{
+    if(this.pensamento.conteudo.length >= 256){
+      return 'pensamento-g'
+    }
+    return 'pensamento-p'
+  }
+```
+
+# Criação de service
+
+`ng g s components/thoughts/thought`
+
+Obs: os services devem injetar no módulo que o quer usar, semelhante ao nest.
+
+# Requisições http
+
+Para fazer requisições http, basta injetar no contructor o HttpClient, em seguida, no app componente, o utilizar:
+
+`constructor(private http: HttpClient) { }`
+
+Se não chamar, o caminho é o seguinte:
+`import {HttpClient} from '@angular/common/http'`
+
+E deve passar o parâmetro dentro do appModule:
+
+```javascript
+imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule
+  ],
+ `
+```
+
+# ngInit
+
+Imagine o ngOnInit como um evento que acontece assim que o seu componente Angular é carregado na tela. É como se fosse um "Olá, mundo!" que o componente dá para o usuário, mas em vez de apenas mostrar uma mensagem, ele pode executar várias tarefas importantes.
+
+Pense em um ator que entra em cena. Ele precisa se preparar antes de começar a atuar, certo? Ele precisa colocar o figurino, ajustar a maquiagem, lembrar das falas... O ngOnInit é como essa preparação do ator.
+
+Ele é um método especial que você pode usar para:
+
+Inicializar variáveis: Se você precisa definir valores iniciais para as variáveis do seu componente, o ngOnInit é o lugar perfeito para isso.
+
+Fazer requisições HTTP: Se você precisa buscar dados de uma API para exibir na tela, o ngOnInit é o momento ideal para fazer essa requisição.
+
+Assinar eventos: Se você precisa se inscrever em eventos do Angular, como mudanças de rotas, o ngOnInit é o lugar para fazer isso.
+
+Executar qualquer código que precisa ser executado apenas uma vez: Se você tem algum código que precisa ser executado apenas quando o componente é carregado, o ngOnInit é o lugar para colocá-lo.
+
+Em resumo, o ngOnInit é um método que te dá a oportunidade de configurar e preparar seu componente Angular antes que ele seja exibido para o usuário.
+
+Você pode usar o ngOnInit para fazer qualquer coisa que precise ser feita antes que o componente esteja pronto para ser usado.
+
+Lembre-se que o ngOnInit é chamado apenas uma vez, quando o componente é inicializado. Se você precisar executar alguma ação depois que o componente já foi inicializado, você precisará usar outro método ou evento do Angular.
