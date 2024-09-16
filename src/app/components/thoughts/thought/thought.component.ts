@@ -9,7 +9,7 @@ import { Thought } from './thought';
 export class ThoughtComponent implements OnInit {
 
   @Input() pensamento: Thought = {
-    id: 0,
+    id: '',
     conteudo: 'I love',
     autoria: 'Matheus Mozart',
     modelo: 'modelo3'

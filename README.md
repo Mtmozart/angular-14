@@ -314,3 +314,22 @@ Em resumo, o ngOnInit é um método que te dá a oportunidade de configurar e pr
 Você pode usar o ngOnInit para fazer qualquer coisa que precise ser feita antes que o componente esteja pronto para ser usado.
 
 Lembre-se que o ngOnInit é chamado apenas uma vez, quando o componente é inicializado. Se você precisar executar alguma ação depois que o componente já foi inicializado, você precisará usar outro método ou evento do Angular.
+
+# Observable
+
+Observables são como um canal de comunicação que pode enviar dados várias vezes durante sua existência. Imagine um canal no YouTube: você se inscreve (subscribe) para receber notificações de novos vídeos. O canal (Observable) te avisa (emite dados) quando um vídeo novo é postado.
+
+Observables são como promises, mas com a vantagem de poderem emitir dados várias vezes, como um canal de notificações. Eles são usados em Angular para lidar com dados que podem mudar ao longo do tempo, como informações da API.
+
+```javascript
+Observable<Objeto>
+
+//uso
+
+ ngOnInit(): void {
+    this.service.listar().subscribe((listaPensamentos) => {
+      this.listaPensamentos = listaPensamentos;
+    })
+  }
+
+```

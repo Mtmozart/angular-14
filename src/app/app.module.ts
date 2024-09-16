@@ -10,6 +10,8 @@ import { FormsModule } from '@angular/forms';
 import { ListThoughtsComponent } from './components/thoughts/list-thoughts/list-thoughts.component';
 import { ThoughtComponent } from './components/thoughts/thought/thought.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ExcludeToughtsComponent } from './components/thoughts/exclude-toughts/exclude-toughts.component';
+import { EditThoughtsComponent } from './components/thoughts/edit-thoughts/edit-thoughts.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { HttpClientModule } from '@angular/common/http';
     FooterComponent,
     CreateThoughtsComponent,
     ListThoughtsComponent,
-    ThoughtComponent
+    ThoughtComponent,
+    ExcludeToughtsComponent,
+    EditThoughtsComponent
   ],
   imports: [
     BrowserModule,
